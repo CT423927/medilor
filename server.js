@@ -6,7 +6,7 @@ const app = express();
 
 app.use(bodyParser.json());
 var corsOptions = {
-  origin: "http://localhost:8080"
+  origin: "https://medilor.herokuapp.com"
 };
 
 app.options('*', cors());

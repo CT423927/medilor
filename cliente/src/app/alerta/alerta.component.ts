@@ -21,7 +21,7 @@ export class AlertaComponent implements OnInit {
   }
 
   conseguirAvisos(){
-    this.http.get('http://localhost:8080/obtenerAlertas').subscribe(data => {
+    this.http.get('https://medilor.herokuapp.com/obtenerAlertas').subscribe(data => {
       console.log("avisos" + data);
       this.avisos=data;
       this.avisosOriginal=data;

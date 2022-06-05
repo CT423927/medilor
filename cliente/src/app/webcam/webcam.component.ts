@@ -37,7 +37,7 @@ export class WebcamComponent implements OnInit {
       data:this.valorExpresionFacial
     });
 
-    this.http.post<any>('http://localhost:8080/facialManual',  {valorExpresionFacial: this.valorExpresionFacial} ).subscribe(data => {
+    this.http.post<any>('https://medilor.herokuapp.com/facialManual',  {valorExpresionFacial: this.valorExpresionFacial} ).subscribe(data => {
       next: (response) => console.log(response)
     });
   }
@@ -115,7 +115,7 @@ export class WebcamComponent implements OnInit {
         faceapi.draw.drawFaceExpressions(this.canvas, this.resizedDetections);
         console.log(this.valorCheckbox);
         if(this.detection[0]!=undefined && this.valorCheckbox==false){
-          this.http.post<any>('http://localhost:8080/emociones',  {
+          this.http.post<any>('https://medilor.herokuapp.com/emociones',  {
             angry: this.detection[0].expressions.angry,
             disgusted: this.detection[0].expressions.disgusted,
             fearful: this.detection[0].expressions.fearful,
