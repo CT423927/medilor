@@ -51,8 +51,13 @@ db.mongoose
     process.exit();
   });
 
-app.get("/", (req, res) => {
-  res.json({ message: "Welcome to bezkoder application." });
+app.get("/", function(request,response){
+    var contenido=fs.readFileSync(__dirname+"/cliente/dist/deteccion-dolor/index.html");
+    //var nick=request.user.email;
+    //var res=juego.agregarJugador(nick);
+    //var res={nick:request.user.email};
+    response.setHeader("Content-type","text/html");
+    response.send(contenido);
 });
 
 // set port, listen for requests
