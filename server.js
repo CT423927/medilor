@@ -51,6 +51,8 @@ db.mongoose
     process.exit();
   });
 
+  app.use(express.static(__dirname + '/cliente/dist/deteccion-dolor'));
+
 app.get("/", function(request,response){
     var contenido=fs.readFileSync(__dirname+"/cliente/dist/deteccion-dolor/index.html");
     //var nick=request.user.email;
