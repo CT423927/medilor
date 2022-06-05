@@ -1,0 +1,61 @@
+.card{
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+    padding: 40px;
+    background: #fff;
+    border-radius: 8px;
+}
+
+.caja {
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+    background: #fff;
+    border-radius: 8px;
+    display: inline-block;
+    height: 300px;
+    margin: 1rem;
+    position: relative;
+    width: 400px;
+}
+
+.widget-49 .widget-49-title-wrapper {
+    display: flex;
+    align-items: left;
+}
+
+.widget-49 .widget-49-title-wrapper .widget-49-date-warning {
+display: flex;
+align-items: center;
+justify-content: center;
+flex-direction: column;
+background-color: #4ac0f23d;
+width: 6rem;
+height: 6rem;
+border-radius: 50%;
+}
+
+.widget-49 .widget-49-title-wrapper .widget-49-date-warning .widget-49-icon {
+color: #000000;
+font-size: 4rem;
+}
+
+.widget-49 .widget-49-title-wrapper .widget-49-meeting-info {
+display: flex;
+flex-direction: column;
+margin-left: 1rem;
+}
+
+.widget-49 .widget-49-title-wrapper .widget-49-meeting-info .widget-49-pro-title {
+color: #3c4142;
+font-size: 15px;
+}
+
+.wj-gauge {
+    margin: 20px auto;
+    width: 50%;
+    max-width: 250px;
+    overflow: hidden;
+}
+
+label {
+    margin-right: 3px;
+}
+

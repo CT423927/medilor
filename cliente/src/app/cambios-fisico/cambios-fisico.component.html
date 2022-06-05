@@ -1,0 +1,41 @@
+<div class="container">
+    <div class="alert alert-success alert-dismissible fade show" role="alert" *ngIf="alerta==true">
+        <strong>Holy guacamole!</strong> You should check in on some of those fields below.
+      </div>
+    <div class="row">
+        <form [formGroup]="cambioFisico" (ngSubmit)="submit()">
+            <div class="frb-group">
+                <div class="frb frb-primary">
+                    <input type="radio" id="radio-button-5" name="cambioFisico" value="0" formControlName="cambioFisico">
+                    <label for="radio-button-5">
+                        <span class="frb-title">No hay cambios de comportamiento</span>
+                    </label>
+                </div>
+                <div class="frb frb-success">
+                    <input type="radio" id="radio-button-6" name="cambioFisico" value="1" formControlName="cambioFisico">
+                    <label for="radio-button-6">
+                        <span class="frb-title">Aumento de confusión, rehúsa comer, alteración de patrones usuales leve</span>
+                    </label>
+                </div>
+                <div class="frb frb-info">
+                    <input type="radio" id="radio-button-7" name="cambioFisico" value="2" formControlName="cambioFisico">
+                    <label for="radio-button-7">
+                        <span class="frb-title">Aumento de confusión, rehúsa comer, alteración de patrones usuales moderado</span>
+                    </label>
+                </div>
+                <div class="frb frb-warning">
+                    <input type="radio" id="radio-button-8" name="cambioFisico" value="3" formControlName="cambioFisico">
+                    <label for="radio-button-8">
+                        <span class="frb-title">Aumento de confusión, rehúsa comer, alteración de patrones usuales grave</span>
+                    </label>
+                </div>
+            </div>
+            <div class="col text-center">
+              <button class="btn btn-primary" type="submit" [disabled]="!cambioFisico.valid">Guardar</button>  
+            </div>
+
+            
+        </form>
+        
+    </div>
+</div>

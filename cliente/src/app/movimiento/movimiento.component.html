@@ -1,0 +1,44 @@
+<div class="container">
+    <video id="webCamWindow" autoplay></video>
+    <div id="movement"></div>    
+
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    <hr>
+    <div class="form-check form-switch">
+        <input class="form-check-input" type="checkbox" role="switch" id="switchCheckMovimiento" (change)="onCheckboxChange($event)">
+        <label class="form-check-label" for="flexSwitchCheckDefault">Manual</label>
+    </div>  
+
+    <form [formGroup]="lenguajeCorporal" (ngSubmit)="submit()">
+        <div class="frb-group">
+            <div class="frb frb-primary">
+                <input type="radio" id="radio-button-21" name="lenguajeCorporal" formControlName="lenguajeCorporal" value="0">
+                <label for="radio-button-21">
+                    <span class="frb-title">Tranquilo</span>
+                </label>
+            </div>
+            <div class="frb frb-success">
+                <input type="radio" id="radio-button-22" name="lenguajeCorporal" formControlName="lenguajeCorporal" value="1">
+                <label for="radio-button-22">
+                    <span class="frb-title">Movimientos ocasionales</span>
+                </label>
+            </div>
+            <div class="frb frb-info">
+                <input type="radio" id="radio-button-23" name="lenguajeCorporal" formControlName="lenguajeCorporal" value="2">
+                <label for="radio-button-23">
+                    <span class="frb-title">Movimientos frecuentes</span>
+                </label>
+            </div>
+            <div class="frb frb-warning">
+                <input type="radio" id="radio-button-24" name="lenguajeCorporal" formControlName="lenguajeCorporal" value="3">
+                <label for="radio-button-24">
+                    <span class="frb-title">Inquieto</span>
+                </label>
+            </div>
+        </div>
+        <div class="col text-center">
+            <button class="btn btn-primary" type="submit" [disabled]="(!lenguajeCorporal.valid || this.valorCheckbox==false)">Guardar</button>   
+        </div>
+        
+    </form>
+</div>

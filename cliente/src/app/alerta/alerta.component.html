@@ -1,0 +1,61 @@
+
+<div class="row">
+  <div class="col-6 col-sm-3">
+
+        <input class="form-control me-2" type="text" placeholder="Buscar" [(ngModel)]="searchText"  (input)="Buscar()"aria-label="Buscar">
+
+  </div>
+  <div class="col-6 col-sm-1 justify-content-center align-self-center">
+    Prioridad
+  </div>
+  <div class="col-2 col-sm-2">
+    <select class="form-select" [(ngModel)]="selected" (change)="Buscar()">
+      <option value="Todas">Todas</option>
+      <option value="yellow">Baja</option>
+      <option value="orange">Media</option>
+      <option value="red">Alta</option>
+    </select>
+</div>
+<div><br></div>
+<div class="container" *ngFor="let alerta of avisos; let i = index" >
+  <div class="row">
+    <div class="col-md-2 justify-content-center align-self-center" ><b>{{alerta.fecha}}</b></div>
+    <div class="col-md-10">
+      <div class="alert alert-primary alert-dismissible d-flex align-items-center fade show">
+
+            <i class="bi bi-exclamation-triangle-fill" [ngStyle]="{'color': alerta.color } "></i>
+            &nbsp;
+            El paciente 
+            <strong class="mx-4">{{alerta.paciente}}</strong>
+            requiere atención.
+          <div class="col col-lg-2">
+            <i [ngSwitch]="alerta.tipo">
+
+              <div *ngSwitchCase="'vocalizacion'" 
+                  class="bi bi-mic-fill">
+              </div>
+              <div *ngSwitchCase="'expresionFacial'"
+                  class="bi bi-person-bounding-box">
+              </div>
+              <div *ngSwitchCase="'cambiosLenguajeCorporal'"
+                  class="bi bi-exclamation-lg">
+              </div>
+              <div *ngSwitchCase="'cambiosComportamiento'"
+                  class="bi bi-emoji-angry-fill">
+              </div>
+              <div *ngSwitchCase="'cambiosFisicologicos'"
+                  class="bi bi-heart-pulse-fill">
+              </div>
+              <div *ngSwitchCase="'cambiosFisicos'"
+                  class="bi bi-bandaid-fill">
+            </div>
+            </i>
+          </div>
+          
+      </div>
+    </div>
+  </div>
+  
+</div>
+
+

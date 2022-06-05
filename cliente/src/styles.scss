@@ -1,0 +1,38 @@
+@import "~bootstrap/dist/css/bootstrap.css";
+@import "~bootstrap-icons/font/bootstrap-icons.css";
+
+body{
+    background-color: #E9ECEF;
+}
+
+.caja {
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+    padding: 40px;
+    background: #fff;
+    max-width: 200px;
+    border-radius: 8px;
+    margin: 60px auto;
+}
+
+.caja-ancha{
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+    padding: 40px;
+    background: #fff;
+    border-radius: 8px;
+    margin: -30px auto;
+
+}
+
+.border-between > [class*='col-']:before {
+    background: #e3e3e3;
+    bottom: 0;
+    content: " ";
+    left: 0;
+    position: absolute;
+    width: 1px;
+    top: 0;
+ }
+ 
+ .border-between > [class*='col-']:first-child:before {
+    display: none;
+ }

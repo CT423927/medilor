@@ -1,0 +1,487 @@
+<div class="container">
+<br><br><br>
+
+<div class="container">
+  <div class="caja-ancha">
+    <br>
+    <div class="d-flex">
+      <div>
+        <h5 class="card-title"><i class="bi bi-person-circle"></i> {{currentPaciente.nombre}} </h5>
+      </div>
+      <div class="ml-auto">
+        <h5 class="card_title" style="text-align: right;">
+          <i class="bi bi-clipboard2-minus-fill" data-toggle="modal" data-target="#infoPaciente"> Información</i>
+          &nbsp;&nbsp;
+          <i class="bi bi-exclamation-triangle-fill" data-toggle="modal" data-target="#alertas"> Avisos</i>
+        </h5>
+      </div>
+    </div>
+    <ul class="nav nav-tabs justify-content-center" id="myTab" role="tablist">
+      <li class="nav-item" role="presentation">
+        <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab" aria-controls="home" aria-selected="true">Escala Abbey</button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile" type="button" role="tab" aria-controls="profile" aria-selected="false">Edición parámetros</button>
+      </li>
+    </ul>
+
+    <div class="tab-content" id="nav-tabContent">
+      <br>
+      <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+        <div class="row">
+          <div class="col-md-6 offset-md-5">
+            <ngx-gauge  
+            [value]="gaugeValue" 
+            [label]="gaugeLabel" 
+            [thresholds]="thresholdConfig"
+            [min]="0" 
+            [max]="18" 
+            [markers]="markerConfig">
+            </ngx-gauge>
+            <br><br>
+          </div>
+        </div>
+              <table class="table-responsive-md table-bordered" style="text-align: center; vertical-align: middle; font-size:14px;">
+                <thead>
+                  <tr>
+                    <th scope="col">Item</th>
+                    <th scope="col">0</th>
+                    <th scope="col">1</th>
+                    <th scope="col">2</th>
+                    <th scope="col">3</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">Vocalización</th>
+                    <td [ngStyle]="vocalizacion == 0 && {'background-color': '#C8E6C9'}">Ninguna</td>
+                    <td [ngStyle]="vocalizacion == 1 && {'background-color': '#FFF9C4'}"> Lamentos, gruñidos, llantos ocasionales</td>
+                    <td [ngStyle]="vocalizacion == 2 && {'background-color': '#FFE0B2'}">Lamentos, gruñidos, llantos frecuentes</td>
+                    <td [ngStyle]="vocalizacion == 3 && {'background-color': '#FFCDD2'}">Lamentos, gruñidos, llantos intermitentes</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Expresión facial</th>
+                    <td [ngStyle]="expresionFacial == 0 && {'background-color': '#C8E6C9'}">Relajada</td>
+                    <td [ngStyle]="expresionFacial == 1 && {'background-color': '#FFF9C4'}">Expresión tensa, fruncida, lamentándose, aspecto asustado leve</td>
+                    <td [ngStyle]="expresionFacial == 2 && {'background-color': '#FFE0B2'}">Expresión tensa, fruncida, lamentándose, aspecto asustado moderado</td>
+                    <td [ngStyle]="expresionFacial == 3 && {'background-color': '#FFCDD2'}">Expresión tensa, fruncida, lamentándose, aspecto asustado grave</td>
+                  </tr>
+                  <tr>
+                    <th scope="row"><i class="bi bi-emoji-angry-fill"><br>
+                    </i>Cambios de comportamiento
+                    </th>
+                    <td [ngStyle]="cambiosComportamiento == 0 && {'background-color': '#C8E6C9'}">No hay cambios de comportamiento</td>
+                    <td [ngStyle]="cambiosComportamiento == 1 && {'background-color': '#FFF9C4'}">Aumento de confusión, rehúsa comer, alteración de patrones usuales leve</td>
+                    <td [ngStyle]="cambiosComportamiento == 2 && {'background-color': '#FFE0B2'}">Aumento de confusión, rehúsa comer, alteración de patrones usuales moderado</td>
+                    <td [ngStyle]="cambiosComportamiento == 3 && {'background-color': '#FFCDD2'}">Aumento de confusión, rehúsa comer, alteración de patrones usuales grave</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Cambios de lenguaje corporal</th>
+                    <td [ngStyle]="cambiosLenguajeCorporal == 0 && {'background-color': '#C8E6C9'}">Tranquilo</td>
+                    <td [ngStyle]="cambiosLenguajeCorporal == 1 && {'background-color': '#FFF9C4'}">Movimientos ocasionales</td>
+                    <td [ngStyle]="cambiosLenguajeCorporal == 2 && {'background-color': '#FFE0B2'}">Movimientos frecuentes</td>
+                    <td [ngStyle]="cambiosLenguajeCorporal == 3 && {'background-color': '#FFCDD2'}">Inquieto</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Cambios fisiologicos</th>
+                    <td [ngStyle]="cambiosFisicologicos == 0 && {'background-color': '#C8E6C9'}">Temperatura, pulso, tensión sanguínea normales</td>
+                    <td [ngStyle]="cambiosFisicologicos == 1 && {'background-color': '#FFF9C4'}">Jacob</td>
+                    <td [ngStyle]="cambiosFisicologicos == 2 && {'background-color': '#FFE0B2'}">Jacob</td>
+                    <td [ngStyle]="cambiosFisicologicos == 3 && {'background-color': '#FFCDD2'}">Temperatura, pulso, tensión sanguínea fuera límites</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Cambios físicos</th>
+                    <td [ngStyle]="cambiosFisicos == 0 && {'background-color': '#C8E6C9'}">Ninguno</td>
+                    <td [ngStyle]="cambiosFisicos == 1 && {'background-color': '#FFF9C4'}">Erosiones, lesiones previas, deformidades, contracturas, áreas de presión leves</td>
+                    <td [ngStyle]="cambiosFisicos == 2 && {'background-color': '#FFE0B2'}">Erosiones, lesiones previas, deformidades, contracturas, áreas de presión moderado</td>
+                    <td [ngStyle]="cambiosFisicos == 3 && {'background-color': '#FFCDD2'}">Erosiones, lesiones previas, deformidades, contracturas, áreas de presión grave</td>
+                  </tr>
+                </tbody>
+              </table>
+              <br>
+              <table class="table table-bordered">
+                <tbody>
+                  <tr style="text-align: center; vertical-align: middle;">
+                    <th scope="row">Total</th>
+                    <td [ngStyle]="puntuacionTotal <= 2 && {'background-color': '#C8E6C9'}">
+                      Sin dolor 
+                      <br>
+                      <b>0-2</b>
+                    </td>
+                    <td [ngStyle]="puntuacionTotal >= 3 && puntuacionTotal <= 7 && {'background-color': '#FFF9C4'}">
+                      Leve
+                      <br>
+                      <b>3-7</b>
+                    </td>
+                    <td [ngStyle]="puntuacionTotal >= 8 && puntuacionTotal <= 13 && {'background-color': '#FFE0B2'}">
+                      Moderado
+                      <br>
+                      <b>8-13</b>
+                    </td>
+                    <td [ngStyle]="puntuacionTotal >= 14 && {'background-color': '#FFCDD2'}">
+                      Severo
+                      <br>
+                      <b>+14</b>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+          
+        </div>
+
+        <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+          <br>
+          <div class="row row-cols-1 row-cols-md-3 g-4">
+            <div class="col">
+              <div class="card" data-toggle="modal" data-target="#exampleModalCenter" >
+                <div class="card-body" style="display: inline-block;">
+                  <div class="widget-49">
+                    <div class="widget-49-title-wrapper">
+                        <div class="widget-49-date-warning">
+                            <span class="widget-49-icon"><i class="bi bi-person-bounding-box"></i></span>
+                        </div>
+                        <div class="widget-49-meeting-info">
+                            <span class="widget-49-pro-title">Expresión facial</span>
+                        </div>
+                    </div>
+                  </div>
+                </div> 
+              </div>
+            </div>
+
+            <div class="col">
+              <div class="card" data-toggle="modal" data-target="#vocalizacion">
+                <div class="card-body" style="display: inline-block;">
+                  <div class="widget-49">
+                    <div class="widget-49-title-wrapper">
+                        <div class="widget-49-date-warning">
+                            <span class="widget-49-icon"><i class="bi bi-mic-fill"></i></span>
+                        </div>
+                        <div class="widget-49-meeting-info">
+                            <span class="widget-49-meeting-time">Vocalización</span>
+                        </div>
+                    </div>  
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col">
+              <div class="card" data-toggle="modal" data-target="#movimientoModal">
+                <div class="card-body" style="display: inline-block;">
+                  <div class="widget-49">
+                    <div class="widget-49-title-wrapper">
+                        <div class="widget-49-date-warning">
+                            <span class="widget-49-icon"><i class="bi bi-exclamation-lg"></i></span>
+                        </div>
+                        <div class="widget-49-meeting-info">
+                            <span class="widget-49-meeting-time">Cambios lenguaje corporal</span>
+                        </div>
+                    </div>
+                  </div>
+                </div>
+              </div>  
+            </div>
+
+            <div class="col">
+              <div class="card" data-toggle="modal" data-target="#ritmoModal">
+                <div class="card-body" style="display: inline-block;">
+                  <div class="widget-49">
+                    <div class="widget-49-title-wrapper">
+                        <div class="widget-49-date-warning">
+                            <span class="widget-49-icon"><i class="bi bi-heart-pulse-fill"></i></span>
+                        </div>
+                        <div class="widget-49-meeting-info">
+                            <span class="widget-49-meeting-time">Cambios fisiologicos</span>
+                        </div>
+                    </div>
+                  </div>
+                </div>
+              </div> 
+            </div>
+
+            <div class="col">
+              <div class="card" data-toggle="modal" data-target="#cambiosComportamiento">
+                <div class="card-body" style="display: inline-block;">
+                  <div class="widget-49">
+                    <div class="widget-49-title-wrapper">
+                        <div class="widget-49-date-warning">
+                            <span class="widget-49-icon"><i class="bi bi-emoji-angry-fill"></i></span>
+                        </div>
+                        <div class="widget-49-meeting-info">
+                            <span class="widget-49-pro-title">Cambios de comportamiento</span>
+                        </div>
+                    </div>
+                  </div>
+                </div> 
+              </div>
+            </div>
+
+            <div class="col">
+              <div class="card" data-toggle="modal" data-target="#cambiosFisicos">
+                <div class="card-body" style="display: inline-block;">
+                  <div class="widget-49">
+                    <div class="widget-49-title-wrapper">
+                        <div class="widget-49-date-warning">
+                            <span class="widget-49-icon"><i class="bi bi-bandaid-fill"></i></span>
+                        </div>
+                        <div class="widget-49-meeting-info">
+                            <span class="widget-49-pro-title">Cambios físicos</span>
+                        </div>
+                    </div>
+                  </div>
+                </div> 
+              </div>
+            </div>
+        
+          </div>
+        </div>  
+    </div>
+
+         
+  </div>
+</div>
+
+<div class="modal fade bd-example-modal-lg" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Expresión facial</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <app-webcam></app-webcam>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade bd-example-modal-lg" id="vocalizacion" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Vocalización</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <app-micro></app-micro>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade bd-example-modal-lg" id="movimientoModal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Cambios lenguaje corporal</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <app-movimiento></app-movimiento>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade bd-example-modal-lg" id="ritmoModal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Cambios fisiológicos</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <app-pulsera></app-pulsera>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade bd-example-modal-lg" id="cambiosComportamiento" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Cambios de comportamiento</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <app-cambios-comportamiento></app-cambios-comportamiento>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade bd-example-modal-lg" id="cambiosFisicos" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Cambios de físicos</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <app-cambios-fisico></app-cambios-fisico>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade bd-example-modal-lg" id="infoPaciente" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Información paciente</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="container">
+          <h1 class="card-title">{{currentPaciente.nombre}}</h1>
+          <br>
+          <div class="row">
+            <div class="col-sm">
+              <h5 class="card-title">Año de nacimiento</h5>
+            </div>
+            <div class="col-sm">
+              {{currentPaciente.fechaNacimiento}}
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-sm">
+              <h5 class="card-title">Sexo</h5> 
+            </div>
+            <div class="col-sm">
+              {{currentPaciente.sexo}}
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-sm">
+              <h5 class="card-title">Contacto</h5> 
+            </div>
+            <div class="col-sm">
+              {{currentPaciente.contacto}}
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-sm">
+              <h5 class="card-title">Fecha ingreso</h5> 
+            </div>
+            <div class="col-sm">
+              {{currentPaciente.fechaIngreso}}
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-sm">
+              <h5 class="card-title">Fecha alta</h5>
+            </div>
+            <div class="col-sm">
+              {{currentPaciente.fechaAlta}}
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-sm">
+              <h5 class="card-title">Monitorización</h5>
+            </div>
+            <div class="col-sm">
+              <div class="form-check form-switch">
+                <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade bd-example-modal-lg" id="alertas" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Avisos</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body" style="font-size: 12px;">
+        <div class="container" *ngFor="let alerta of avisos; let i = index" >
+          <div class="row">
+            <div class="col-md-2 justify-content-center align-self-center" ><b>{{alerta.fecha}}</b></div>
+            <div class="col-md-10">
+              <div class="alert alert-primary alert-dismissible d-flex align-items-center fade show">
+        
+                    <i class="bi bi-exclamation-triangle-fill" [ngStyle]="{'color': alerta.color } "></i>
+                    &nbsp;
+                    El paciente 
+                    <strong class="mx-4">{{alerta.paciente}}</strong>
+                    requiere atención.
+                  <div class="col col-lg-2">
+                    <i [ngSwitch]="alerta.tipo">
+        
+                      <div *ngSwitchCase="'vocalizacion'" 
+                          class="bi bi-mic-fill">
+                      </div>
+                      <div *ngSwitchCase="'expresionFacial'"
+                          class="bi bi-person-bounding-box">
+                      </div>
+                      <div *ngSwitchCase="'cambiosLenguajeCorporal'"
+                          class="bi bi-exclamation-lg">
+                      </div>
+                      <div *ngSwitchCase="'cambiosComportamiento'"
+                          class="bi bi-emoji-angry-fill">
+                      </div>
+                      <div *ngSwitchCase="'cambiosFisicologicos'"
+                          class="bi bi-heart-pulse-fill">
+                      </div>
+                      <div *ngSwitchCase="'cambiosFisicos'"
+                          class="bi bi-bandaid-fill">
+                    </div>
+                    </i>
+                  </div>
+                  
+              </div>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  // Element inside which you want to see the chart
+let element = document.querySelector('#gaugeArea')
+ 
+ // Properties of the gauge
+ let gaugeOptions = {
+   hasNeedle: true,
+   needleColor: 'gray',
+   needleUpdateSpeed: 1000,
+   arcColors: ['rgb(44, 151, 222)', 'lightgray'],
+   arcDelimiters: [30],
+   rangeLabel: ['0', '100'],
+   centralLabel: '50',
+ }
+  
+ // Drawing and updating the chart
+ GaugeChart.gaugeChart(element, 300, gaugeOptions).updateNeedle(50)
+</script>

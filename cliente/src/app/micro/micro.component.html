@@ -1,0 +1,51 @@
+<div class="container">
+    <div class="row border-between">
+      <div class="col-sm-6">
+        <div class="col text-center">
+          <div class="microfono" id="volume-visualizer"></div>
+          <h4>{{averageVolume}}</h4>
+        </div>
+       
+      </div>
+      <div class="col-sm-6">
+        <div class="form-check form-switch">
+          <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" (change)="onCheckboxChange($event)">
+          <label class="form-check-label" for="flexSwitchCheckDefault">Manual</label>
+        </div>  
+  
+        <form [formGroup]="vocalizacion" (ngSubmit)="submit()">
+          <div class="frb-group">
+              <div class="frb frb-primary">
+                  <input type="radio" id="radio-button-17" name="vocalizacion" formControlName="vocalizacion" value="0">
+                  <label for="radio-button-17">
+                      <span class="frb-title">Ninguna</span>
+                  </label>
+              </div>
+              <div class="frb frb-success">
+                  <input type="radio" id="radio-button-18" name="vocalizacion" formControlName="vocalizacion" value="1">
+                  <label for="radio-button-18">
+                      <span class="frb-title">Lamentos, gruñidos, llantos ocasionales</span>
+                  </label>
+              </div>
+              <div class="frb frb-info">
+                  <input type="radio" id="radio-button-19" name="vocalizacion" formControlName="vocalizacion" value="2">
+                  <label for="radio-button-19">
+                      <span class="frb-title">Lamentos, gruñidos, llantos frecuentes</span>
+                  </label>
+              </div>
+              <div class="frb frb-warning">
+                  <input type="radio" id="radio-button-20" name="vocalizacion" formControlName="vocalizacion" value="3">
+                  <label for="radio-button-20">
+                      <span class="frb-title">Lamentos, gruñidos, llantos intermitentes</span>
+                  </label>
+              </div>
+          </div>
+          <div class="col text-center">
+              <button class="btn btn-primary" type="submit" [disabled]="(!vocalizacion.valid || this.valorCheckbox==false)">Guardar</button>   
+          </div>
+          
+        </form>
+      </div>
+    </div>
+  </div>
+  

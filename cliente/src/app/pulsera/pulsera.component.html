@@ -1,0 +1,59 @@
+<div class="container">
+  <div class="row border-between">
+    <div class="col-sm-6">
+      <div class="col text-center">
+        <button button id="scanBtn" class="btn btn-primary">Conectar pulsera</button>
+        <main style="display: none;">
+            <pre id="output"></pre>
+        </main>
+      </div>
+
+      <br>
+      <br>
+      <div class="col text-center">
+        <h2>{{ritmoCardiaco}} lpm</h2>
+        <div id="heart"></div>
+      </div>
+      
+    </div>
+    <div class="col-sm-6">
+      <div class="form-check form-switch">
+        <input class="form-check-input" type="checkbox" role="switch" id="switchCheckPulsera" (change)="onCheckboxChange($event)">
+        <label class="form-check-label" for="flexSwitchCheckDefault">Manual</label>
+      </div>  
+
+      <form [formGroup]="cambiosFisiologicos" (ngSubmit)="submit()">
+        <div class="frb-group">
+            <div class="frb frb-primary">
+                <input type="radio" id="radio-button-9" name="cambiosFisiologicos" formControlName="cambiosFisiologicos" value="0">
+                <label for="radio-button-9">
+                    <span class="frb-title">Temperatura, pulso, tensión sanguínea normales</span>
+                </label>
+            </div>
+            <div class="frb frb-success">
+                <input type="radio" id="radio-button-10" name="cambiosFisiologicos" formControlName="cambiosFisiologicos" value="1">
+                <label for="radio-button-10">
+                    <span class="frb-title">Aumento de confusión, rehúsa comer, alteración de patrones usuales leve</span>
+                </label>
+            </div>
+            <div class="frb frb-info">
+                <input type="radio" id="radio-button-11" name="cambiosFisiologicos" formControlName="cambiosFisiologicos" value="2">
+                <label for="radio-button-11">
+                    <span class="frb-title">Aumento de confusión, rehúsa comer, alteración de patrones usuales moderado</span>
+                </label>
+            </div>
+            <div class="frb frb-warning">
+                <input type="radio" id="radio-button-12" name="cambiosFisiologicos" formControlName="cambiosFisiologicos" value="3">
+                <label for="radio-button-12">
+                    <span class="frb-title">Temperatura, pulso, tensión sanguínea fuera límites</span>
+                </label>
+            </div>
+        </div>
+        <div class="col text-center">
+            <button class="btn btn-primary" type="submit" [disabled]="(!cambiosFisiologicos.valid || this.valorCheckbox==false)">Guardar</button>   
+        </div>
+        
+      </form>
+    </div>
+  </div>
+</div>
