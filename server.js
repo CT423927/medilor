@@ -1,7 +1,8 @@
-const path = require('path');
+
 const express = require("express");
 const bodyParser = require("body-parser");
 const cors = require("cors");
+const path = require('path');
 const app = express();
 
 app.use(bodyParser.json());
@@ -54,12 +55,9 @@ db.mongoose
   app.use(express.static(__dirname + '/cliente/dist/deteccion-dolor'));
 
 app.get("*", function(request,response){
-    var contenido=fs.readFileSync(__dirname+"/cliente/dist/deteccion-dolor/index.html");
-    //var nick=request.user.email;
-    //var res=juego.agregarJugador(nick);
-    //var res={nick:request.user.email};
     response.setHeader("Content-type","text/html");
-    response.send(contenido);
+    response.sendFile(path.join(__dirname + "/cliente/dist/deteccion-dolor/index.html"));
+
 });
 
 // set port, listen for requests
