@@ -31,7 +31,7 @@ app.use(express.urlencoded({ extended: true }));
 
 
 
-var algoritmo=require("./algoritmo.js");
+var algoritmo=require("./servidor/algoritmo.js");
 var escalaAbbey = new algoritmo.EscalaAbbey();
 
 // simple route
@@ -53,7 +53,7 @@ db.mongoose
 
   app.use(express.static(__dirname + '/cliente/dist/deteccion-dolor'));
 
-app.get("/", function(request,response){
+app.get("*", function(request,response){
     var contenido=fs.readFileSync(__dirname+"/cliente/dist/deteccion-dolor/index.html");
     //var nick=request.user.email;
     //var res=juego.agregarJugador(nick);
