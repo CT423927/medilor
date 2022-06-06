@@ -54,9 +54,13 @@ db.mongoose
 
   app.use(express.static(__dirname + '/cliente/dist/deteccion-dolor'));
 
-app.get("*", function(request,response){
+app.get("/*", function(request,response){
+    var contenido=fs.readFileSync(path.join(__dirname+"/cliente/dist/deteccion-dolor/index.html"));
+    //var nick=request.user.email;
+    //var res=juego.agregarJugador(nick);
+    //var res={nick:request.user.email};
     response.setHeader("Content-type","text/html");
-    response.sendFile(path.join(__dirname + "/cliente/dist/deteccion-dolor/index.html"));
+    response.send(contenido);
 
 });
 
