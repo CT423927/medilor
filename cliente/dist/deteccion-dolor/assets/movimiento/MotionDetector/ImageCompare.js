@@ -22,7 +22,7 @@
 	 */
 	App.ImageCompare = function() {
 		var sensitivity, temp1Canvas, temp1Context, temp2Canvas, temp2Context, topLeft, bottomRight;
-		var url = 'https://medilor.herokuapp.com/cambiosLenguajeCorporal';
+		var url = 'http://medilor.herokuapp.com/cambiosLenguajeCorporal';
 		var data = {data: '1'};
 
 		/*
@@ -90,7 +90,8 @@
 				}
 			}
 
-			if((topLeft[0]!="Infinity") && (topLeft[0]!="Infinity") && (bottomRight[0]!=0) && (bottomRight[0]!=0) && document.getElementById("switchCheckMovimiento").checked==false){
+			if((topLeft[0]!="Infinity") && (topLeft[1]!="Infinity") && (bottomRight[0]!=0) && (bottomRight[1]!=0) && document.getElementById("switchCheckMovimiento").checked==false){
+				console.log("MOVIEMIENTO!");
 				fetch(url, {
 				method: 'POST', 
 				body: JSON.stringify(data), // data can be `string` or {object}!
@@ -99,7 +100,7 @@
 				}
 				}).then(res => res.json()) 
 			} else {
-
+				console.log("NO HAY MOVIMIENTO")
 				fetch(url, {
 					method: 'POST', 
 					body: JSON.stringify({data: '0'}), // data can be `string` or {object}!
