@@ -30,7 +30,7 @@ export class PulseraComponent implements OnInit {
     this.valorCheckbox=e.target.checked;
     console.log(e.target.checked);
     console.log("CHECK"+this.valorCheckbox);
-    this.http.post<any>('http://medilor.herokuapp.com/manualActivadoCambiosFisicologicos',  {bool: this.valorCheckbox} ).subscribe(data => {
+    this.http.post<any>('https://medilor.herokuapp.com/manualActivadoCambiosFisicologicos',  {bool: this.valorCheckbox} ).subscribe(data => {
       next: (response) => console.log(response)
     });
   }
@@ -43,14 +43,14 @@ export class PulseraComponent implements OnInit {
       data:this.valorCambiosFisiologicos 
     });
 
-    this.http.post<any>('http://medilor.herokuapp.com/fisiologicosManual',  {valorCambiosFisiologicos: this.valorCambiosFisiologicos} ).subscribe(data => {
+    this.http.post<any>('https://medilor.herokuapp.com/fisiologicosManual',  {valorCambiosFisiologicos: this.valorCambiosFisiologicos} ).subscribe(data => {
       next: (response) => console.log(response)
     });
     
   }
 
   obtenerRitmoCardiaco(): void {
-    this.http.get('http://medilor.herokuapp.com/obtenerRitmoCardiaco').subscribe(data => {
+    this.http.get('https://medilor.herokuapp.com/obtenerRitmoCardiaco').subscribe(data => {
       console.log("ritmo" + data);
       this.ritmoCardiaco=JSON.parse(data.toString());
       this.requestTimeout = setTimeout(() => this.obtenerRitmoCardiaco(),5000);

@@ -57,7 +57,7 @@ export class AlertaComponent implements OnInit {
   actualizarAtendidas(id){
     this.avisos[id].atendida='true';
 
-    this.http.post<any>('http://medilor.herokuapp.com/avisoAtendido',  {id: id} ).subscribe(data => {
+    this.http.post<any>('https://medilor.herokuapp.com/avisoAtendido',  {id: id} ).subscribe(data => {
       next: (response) => console.log(response)
     });
   }
