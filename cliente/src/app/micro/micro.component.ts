@@ -32,7 +32,7 @@ export class MicroComponent implements OnInit {
       data:this.valorVocalizacion 
     });
 
-    this.http.post<any>('http://localhost:8080/vocalizacionManual',  {valorVocalizacion: this.valorVocalizacion} ).subscribe(data => {
+    this.http.post<any>('http://medilor.herokuapp.com/vocalizacionManual',  {valorVocalizacion: this.valorVocalizacion} ).subscribe(data => {
       next: (response) => console.log(response)
     });
     
@@ -68,7 +68,7 @@ export class MicroComponent implements OnInit {
           // Value range: 127 = analyser.maxDecibels - analyser.minDecibels;
           console.log(this.averageVolume);
           if(this.valorCheckbox==false){
-            this.http.post<any>('http://localhost:8080/vocalizacion',  {data:this.averageVolume} 
+            this.http.post<any>('http://medilor.herokuapp.com/vocalizacion',  {data:this.averageVolume} 
             ).subscribe(data => {
             next: (response) => console.log('OK VOC' + response)
            }); 

@@ -18,44 +18,46 @@ function EscalaAbbey(){
 
     this.alertas = [
         {
+            "id": '0',
             "paciente": "ANTONIO CALDERON LOPEZ",
             "fecha": new Date('May 24, 2022 13:24:00'),
             "tipo": 'cambiosLenguajeCorporal',
-            "color": 'orange'
+            "color": 'orange',
+            "atendida": 'false'
         },
         {
+            "id": '1',
             "paciente": "ANTONIO CALDERON LOPEZ",
             "fecha": new Date('May 24, 2022 18:24:00'),
             "tipo": 'cambiosFisicologicos',
-            "color": 'red'
+            "color": 'red',
+            "atendida": 'true'
         },
         {
+            "id": '2',
             "paciente": "ANTONIO CALDERON LOPEZ",
             "fecha": new Date('1995-12-17T19:24:00'),
             "tipo": 'cambiosFisicos',
-            "color": 'yellow'
+            "color": 'yellow',
+            "atendida": 'false'
         },
         {
+            "id": '3',
             "paciente": "ANTONIO CALDERON LOPEZ",
             "fecha": new Date('May 24, 2022 10:24:00'),
             "tipo": 'cambiosComportamiento',
-            "color": 'red'
+            "color": 'red',
+            "atendida": 'true'
         },
         {
+            "id": '4',
             "paciente": "BRUNO GRAU SOLIS",
             "fecha": new Date('May 24, 2022 10:24:00'),
             "tipo": 'cambiosComportamiento',
-            "color": 'red'
+            "color": 'red',
+            "atendida": 'true'
         }
     ];
-    nuevoelemento= {
-        "paciente": "cornelia",
-        "fecha": new Date('May 24, 2022 13:24:00'),
-        "tipo": 'cambiosLenguajeCorporal',
-        "color": 'orange'
-    };
-    this.alertas.push(nuevoelemento);
-    console.log(this.alertas);
 
     this.setVocalizacion= function(valorVocalizacion){
         console.log("Set valorVocalizacion" + valorVocalizacion)
