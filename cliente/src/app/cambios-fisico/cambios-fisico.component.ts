@@ -33,7 +33,7 @@ export class CambiosFisicoComponent implements OnInit {
     this.servicioCom.disparadorEnviarCambiosFisicos.emit({
       data:this.valorCambioFisico 
     });
-    this.http.post<any>('http://medilor.herokuapp.com/cambiosFisicos',  {cambioFisico: this.valorCambioFisico} ).subscribe(data => {
+    this.http.post<any>('http://localhost:8080/cambiosFisicos',  {cambioFisico: this.valorCambioFisico} ).subscribe(data => {
       next: (response) => console.log(response)
     });
     this.alerta=true;

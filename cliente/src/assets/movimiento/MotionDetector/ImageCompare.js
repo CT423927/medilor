@@ -22,7 +22,7 @@
 	 */
 	App.ImageCompare = function() {
 		var sensitivity, temp1Canvas, temp1Context, temp2Canvas, temp2Context, topLeft, bottomRight;
-		var url = 'http://medilor.herokuapp.com/cambiosLenguajeCorporal';
+		var url = 'http://localhost:8080/cambiosLenguajeCorporal';
 		var data = {data: '1'};
 
 		/*

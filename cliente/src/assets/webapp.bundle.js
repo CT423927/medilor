@@ -7672,7 +7672,7 @@
                 log('Heart Rate:', rate);
                 if(document.getElementById("switchCheckMovimiento").checked==false){
                   $.ajax({
-                    url : 'http://medilor.herokuapp.com/cambiosFisicologicos',
+                    url : 'http://localhost:8080/cambiosFisicologicos',
                     data : {rate:rate}, 
                     method : 'POST', //en este caso
                     dataType : 'json',

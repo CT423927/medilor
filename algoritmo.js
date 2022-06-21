@@ -118,7 +118,8 @@ function EscalaAbbey(){
                     "paciente": "ANTONIO CALDERON LOPEZ",
                     "fecha": new Date(Date.now()),
                     "tipo": 'vocalizacion',
-                    "color": 'red'
+                    "color": 'red',
+                    "atendida": 'false'
                 };
                 this.alertas.push(nuevoelemento);
                 this.calcularPuntuacionFinal();
@@ -155,7 +156,9 @@ function EscalaAbbey(){
                     "paciente": "ANTONIO CALDERON LOPEZ",
                     "fecha": new Date(Date.now()),
                     "tipo": 'expresionFacial',
-                    "color": 'red'
+                    "color": 'red',
+                    "atendida": 'false'
+
                 };
                 this.alertas.push(nuevoelemento);
                 this.calcularPuntuacionFinal();
@@ -190,7 +193,8 @@ function EscalaAbbey(){
                     "paciente": "ANTONIO CALDERON LOPEZ",
                     "fecha": new Date(Date.now()),
                     "tipo": 'cambiosFisicologicos',
-                    "color": 'red'
+                    "color": 'red',
+                    "atendida": 'false'
                 };
                 this.alertas.push(nuevoelemento);
                 this.calcularPuntuacionFinal();
@@ -219,7 +223,8 @@ function EscalaAbbey(){
                     "paciente": "ANTONIO CALDERON LOPEZ",
                     "fecha": new Date(Date.now()),
                     "tipo": 'cambiosLenguajeCorporal',
-                    "color": 'red'
+                    "color": 'red',
+                    "atendida": 'false'
                 };
                 this.calcularPuntuacionFinal();
                 break;
