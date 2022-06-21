@@ -6,5 +6,6 @@ export class Paciente {
     contacto?: string;
     fechaIngreso?: string;
     fechaAlta?: string;
-    ingresado?: Boolean
+    monitorizacion?: Boolean;
+    ingresado?: Boolean;
 }

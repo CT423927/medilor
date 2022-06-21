@@ -33,7 +33,7 @@ export class InicioComponent implements OnInit {
           this.pacientes=data;
           this.numTotal= data.length;
           for(let paciente of this.pacientes){
-            if(paciente.ingresado==true){
+            if(paciente.monitorizacion==true){
               this.numMonitorizados++;
             }
             if(paciente.fechaAlta.split('-')[0]=='0000'){
@@ -49,7 +49,7 @@ export class InicioComponent implements OnInit {
   }
 
   conseguirAvisos(){
-    this.http.get('https://medilor.herokuapp.com/obtenerAlertas').subscribe(data => {
+    this.http.get('http://localhost:8080/obtenerAlertas').subscribe(data => {
       console.log("avisos" + data);
       console.log("avisos" + Object.keys(data).length);
       this.numAvisos=Object.keys(data).length;

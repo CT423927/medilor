@@ -32,7 +32,7 @@ export class MicroComponent implements OnInit {
       data:this.valorVocalizacion 
     });
 
-    this.http.post<any>('https://medilor.herokuapp.com/vocalizacionManual',  {valorVocalizacion: this.valorVocalizacion} ).subscribe(data => {
+    this.http.post<any>('http://localhost:8080/vocalizacionManual',  {valorVocalizacion: this.valorVocalizacion} ).subscribe(data => {
       next: (response) => console.log(response)
     });
     
@@ -67,6 +67,12 @@ export class MicroComponent implements OnInit {
           this.averageVolume = Math.round(volumeSum / volumes.length);
           // Value range: 127 = analyser.maxDecibels - analyser.minDecibels;
           console.log(this.averageVolume);
+          if(this.valorCheckbox==false){
+            this.http.post<any>('http://localhost:8080/vocalizacion',  {data:this.averageVolume} 
+            ).subscribe(data => {
+            next: (response) => console.log('OK VOC' + response)
+           }); 
+          } 
           volumeVisualizer.style.setProperty('--volume', (this.averageVolume * 100 / 127) + '%');
         };
       } catch(e) {
@@ -80,7 +86,7 @@ export class MicroComponent implements OnInit {
           volumeVisualizer.style.setProperty('--volume', volume + '%');
         };
       }
-      volumeInterval = setInterval(volumeCallback, 100);
+      volumeInterval = setInterval(volumeCallback, 2000);
     })();
   }
 }

@@ -21,7 +21,7 @@ export class AlertaComponent implements OnInit {
   }
 
   conseguirAvisos(){
-    this.http.get('https://medilor.herokuapp.com/obtenerAlertas').subscribe(data => {
+    this.http.get('http://localhost:8080/obtenerAlertas').subscribe(data => {
       console.log("avisos" + data);
       this.avisos=data;
       this.avisosOriginal=data;
@@ -52,7 +52,15 @@ export class AlertaComponent implements OnInit {
       this.conseguirAvisos();
     } 
 
-  } 
+  }
+  
+  actualizarAtendidas(id){
+    this.avisos[id].atendida='true';
+
+    this.http.post<any>('http://localhost:8080/avisoAtendido',  {id: id} ).subscribe(data => {
+      next: (response) => console.log(response)
+    });
+  }
 
 
 }

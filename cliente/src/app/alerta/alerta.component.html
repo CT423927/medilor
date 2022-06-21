@@ -21,8 +21,7 @@
   <div class="row">
     <div class="col-md-2 justify-content-center align-self-center" ><b>{{alerta.fecha}}</b></div>
     <div class="col-md-10">
-      <div class="alert alert-primary alert-dismissible d-flex align-items-center fade show">
-
+      <div class="alert alert-success alert-dismissible d-flex fade show " [ngClass]="{'alert-success': alerta.atendida=='true', 'alert-danger': alerta.atendida=='false'}">
             <i class="bi bi-exclamation-triangle-fill" [ngStyle]="{'color': alerta.color } "></i>
             &nbsp;
             El paciente 
@@ -51,11 +50,12 @@
             </div>
             </i>
           </div>
-          
+          <div class="col col-lg-2"></div>
+          <div class="col col-lg-0"></div>
+          <h6  *ngIf="alerta.atendida=='false'" style="cursor:pointer;" ><button type="button" class="btn btn-outline-secondary btn-sm" (click)="actualizarAtendidas(alerta.id)"><i class="bi bi-check-lg"></i></button></h6>
       </div>
     </div>
   </div>
-  
 </div>
 
 

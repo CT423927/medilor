@@ -10,9 +10,9 @@
       </div>
       <div class="ml-auto">
         <h5 class="card_title" style="text-align: right;">
-          <i class="bi bi-clipboard2-minus-fill" data-toggle="modal" data-target="#infoPaciente"> Información</i>
+          <i class="bi bi-clipboard2-minus-fill" data-toggle="modal" style="cursor:pointer;" data-target="#infoPaciente"> Información</i>
           &nbsp;&nbsp;
-          <i class="bi bi-exclamation-triangle-fill" data-toggle="modal" data-target="#alertas"> Avisos</i>
+          <i class="bi bi-exclamation-triangle-fill" data-toggle="modal" style="cursor:pointer;" data-target="#alertas"> Avisos</i>
         </h5>
       </div>
     </div>
@@ -54,47 +54,47 @@
                 <tbody>
                   <tr>
                     <th scope="row">Vocalización</th>
-                    <td [ngStyle]="vocalizacion == 0 && {'background-color': '#C8E6C9'}">Ninguna</td>
-                    <td [ngStyle]="vocalizacion == 1 && {'background-color': '#FFF9C4'}"> Lamentos, gruñidos, llantos ocasionales</td>
-                    <td [ngStyle]="vocalizacion == 2 && {'background-color': '#FFE0B2'}">Lamentos, gruñidos, llantos frecuentes</td>
-                    <td [ngStyle]="vocalizacion == 3 && {'background-color': '#FFCDD2'}">Lamentos, gruñidos, llantos intermitentes</td>
+                    <td [ngStyle]="vocalizacion == 0 && {'background-color': '#00c942'}">Ninguna</td>
+                    <td [ngStyle]="vocalizacion == 1 && {'background-color': '#FFEE58'}"> Lamentos, gruñidos, llantos ocasionales</td>
+                    <td [ngStyle]="vocalizacion == 2 && {'background-color': '#ff9d4d'}">Lamentos, gruñidos, llantos frecuentes</td>
+                    <td [ngStyle]="vocalizacion == 3 && {'background-color': '#E74C3C'}">Lamentos, gruñidos, llantos intermitentes</td>
                   </tr>
                   <tr>
                     <th scope="row">Expresión facial</th>
-                    <td [ngStyle]="expresionFacial == 0 && {'background-color': '#C8E6C9'}">Relajada</td>
-                    <td [ngStyle]="expresionFacial == 1 && {'background-color': '#FFF9C4'}">Expresión tensa, fruncida, lamentándose, aspecto asustado leve</td>
-                    <td [ngStyle]="expresionFacial == 2 && {'background-color': '#FFE0B2'}">Expresión tensa, fruncida, lamentándose, aspecto asustado moderado</td>
-                    <td [ngStyle]="expresionFacial == 3 && {'background-color': '#FFCDD2'}">Expresión tensa, fruncida, lamentándose, aspecto asustado grave</td>
+                    <td [ngStyle]="expresionFacial == 0 && {'background-color': '#00c942'}">Relajada</td>
+                    <td [ngStyle]="expresionFacial == 1 && {'background-color': '#FFEE58'}">Expresión tensa, fruncida, lamentándose, aspecto asustado leve</td>
+                    <td [ngStyle]="expresionFacial == 2 && {'background-color': '#ff9d4d'}">Expresión tensa, fruncida, lamentándose, aspecto asustado moderado</td>
+                    <td [ngStyle]="expresionFacial == 3 && {'background-color': '#E74C3C'}">Expresión tensa, fruncida, lamentándose, aspecto asustado grave</td>
                   </tr>
                   <tr>
-                    <th scope="row"><i class="bi bi-emoji-angry-fill"><br>
-                    </i>Cambios de comportamiento
+                    <th scope="row">
+                    Cambios de comportamiento
                     </th>
-                    <td [ngStyle]="cambiosComportamiento == 0 && {'background-color': '#C8E6C9'}">No hay cambios de comportamiento</td>
-                    <td [ngStyle]="cambiosComportamiento == 1 && {'background-color': '#FFF9C4'}">Aumento de confusión, rehúsa comer, alteración de patrones usuales leve</td>
-                    <td [ngStyle]="cambiosComportamiento == 2 && {'background-color': '#FFE0B2'}">Aumento de confusión, rehúsa comer, alteración de patrones usuales moderado</td>
-                    <td [ngStyle]="cambiosComportamiento == 3 && {'background-color': '#FFCDD2'}">Aumento de confusión, rehúsa comer, alteración de patrones usuales grave</td>
+                    <td [ngStyle]="cambiosComportamiento == 0 && {'background-color': '#00c942'}">No hay cambios de comportamiento</td>
+                    <td [ngStyle]="cambiosComportamiento == 1 && {'background-color': '#FFEE58'}">Aumento de confusión, rehúsa comer, alteración de patrones usuales leve</td>
+                    <td [ngStyle]="cambiosComportamiento == 2 && {'background-color': '#ff9d4d'}">Aumento de confusión, rehúsa comer, alteración de patrones usuales moderado</td>
+                    <td [ngStyle]="cambiosComportamiento == 3 && {'background-color': '#E74C3C'}">Aumento de confusión, rehúsa comer, alteración de patrones usuales grave</td>
                   </tr>
                   <tr>
                     <th scope="row">Cambios de lenguaje corporal</th>
-                    <td [ngStyle]="cambiosLenguajeCorporal == 0 && {'background-color': '#C8E6C9'}">Tranquilo</td>
-                    <td [ngStyle]="cambiosLenguajeCorporal == 1 && {'background-color': '#FFF9C4'}">Movimientos ocasionales</td>
-                    <td [ngStyle]="cambiosLenguajeCorporal == 2 && {'background-color': '#FFE0B2'}">Movimientos frecuentes</td>
-                    <td [ngStyle]="cambiosLenguajeCorporal == 3 && {'background-color': '#FFCDD2'}">Inquieto</td>
+                    <td [ngStyle]="cambiosLenguajeCorporal == 0 && {'background-color': '#00c942'}">Tranquilo</td>
+                    <td [ngStyle]="cambiosLenguajeCorporal == 1 && {'background-color': '#FFEE58'}">Movimientos ocasionales</td>
+                    <td [ngStyle]="cambiosLenguajeCorporal == 2 && {'background-color': '#ff9d4d'}">Movimientos frecuentes</td>
+                    <td [ngStyle]="cambiosLenguajeCorporal == 3 && {'background-color': '#E74C3C'}">Inquieto</td>
                   </tr>
                   <tr>
                     <th scope="row">Cambios fisiologicos</th>
-                    <td [ngStyle]="cambiosFisicologicos == 0 && {'background-color': '#C8E6C9'}">Temperatura, pulso, tensión sanguínea normales</td>
-                    <td [ngStyle]="cambiosFisicologicos == 1 && {'background-color': '#FFF9C4'}">Jacob</td>
-                    <td [ngStyle]="cambiosFisicologicos == 2 && {'background-color': '#FFE0B2'}">Jacob</td>
-                    <td [ngStyle]="cambiosFisicologicos == 3 && {'background-color': '#FFCDD2'}">Temperatura, pulso, tensión sanguínea fuera límites</td>
+                    <td [ngStyle]="cambiosFisicologicos == 0 && {'background-color': '#00c942'}">Temperatura, pulso, tensión sanguínea normales</td>
+                    <td [ngStyle]="cambiosFisicologicos == 1 && {'background-color': '#FFEE58'}">Jacob</td>
+                    <td [ngStyle]="cambiosFisicologicos == 2 && {'background-color': '#ff9d4d'}">Jacob</td>
+                    <td [ngStyle]="cambiosFisicologicos == 3 && {'background-color': '#E74C3C'}">Temperatura, pulso, tensión sanguínea fuera límites</td>
                   </tr>
                   <tr>
                     <th scope="row">Cambios físicos</th>
-                    <td [ngStyle]="cambiosFisicos == 0 && {'background-color': '#C8E6C9'}">Ninguno</td>
-                    <td [ngStyle]="cambiosFisicos == 1 && {'background-color': '#FFF9C4'}">Erosiones, lesiones previas, deformidades, contracturas, áreas de presión leves</td>
-                    <td [ngStyle]="cambiosFisicos == 2 && {'background-color': '#FFE0B2'}">Erosiones, lesiones previas, deformidades, contracturas, áreas de presión moderado</td>
-                    <td [ngStyle]="cambiosFisicos == 3 && {'background-color': '#FFCDD2'}">Erosiones, lesiones previas, deformidades, contracturas, áreas de presión grave</td>
+                    <td [ngStyle]="cambiosFisicos == 0 && {'background-color': '#00c942'}">Ninguno</td>
+                    <td [ngStyle]="cambiosFisicos == 1 && {'background-color': '#FFEE58'}">Erosiones, lesiones previas, deformidades, contracturas, áreas de presión leves</td>
+                    <td [ngStyle]="cambiosFisicos == 2 && {'background-color': '#ff9d4d'}">Erosiones, lesiones previas, deformidades, contracturas, áreas de presión moderado</td>
+                    <td [ngStyle]="cambiosFisicos == 3 && {'background-color': '#E74C3C'}">Erosiones, lesiones previas, deformidades, contracturas, áreas de presión grave</td>
                   </tr>
                 </tbody>
               </table>
@@ -103,22 +103,22 @@
                 <tbody>
                   <tr style="text-align: center; vertical-align: middle;">
                     <th scope="row">Total</th>
-                    <td [ngStyle]="puntuacionTotal <= 2 && {'background-color': '#C8E6C9'}">
+                    <td [ngStyle]="puntuacionTotal <= 2 && {'background-color': '#00c942'}">
                       Sin dolor 
                       <br>
                       <b>0-2</b>
                     </td>
-                    <td [ngStyle]="puntuacionTotal >= 3 && puntuacionTotal <= 7 && {'background-color': '#FFF9C4'}">
+                    <td [ngStyle]="puntuacionTotal >= 3 && puntuacionTotal <= 7 && {'background-color': '#FFEE58'}">
                       Leve
                       <br>
                       <b>3-7</b>
                     </td>
-                    <td [ngStyle]="puntuacionTotal >= 8 && puntuacionTotal <= 13 && {'background-color': '#FFE0B2'}">
+                    <td [ngStyle]="puntuacionTotal >= 8 && puntuacionTotal <= 13 && {'background-color': '#ff9d4d'}">
                       Moderado
                       <br>
                       <b>8-13</b>
                     </td>
-                    <td [ngStyle]="puntuacionTotal >= 14 && {'background-color': '#FFCDD2'}">
+                    <td [ngStyle]="puntuacionTotal >= 14 && {'background-color': '#E74C3C'}">
                       Severo
                       <br>
                       <b>+14</b>
@@ -133,7 +133,7 @@
           <br>
           <div class="row row-cols-1 row-cols-md-3 g-4">
             <div class="col">
-              <div class="card" data-toggle="modal" data-target="#exampleModalCenter" >
+              <div class="card" data-toggle="modal" data-target="#exampleModalCenter" style="cursor:pointer;" >
                 <div class="card-body" style="display: inline-block;">
                   <div class="widget-49">
                     <div class="widget-49-title-wrapper">
@@ -150,7 +150,7 @@
             </div>
 
             <div class="col">
-              <div class="card" data-toggle="modal" data-target="#vocalizacion">
+              <div class="card" data-toggle="modal" data-target="#vocalizacion" style="cursor:pointer;">
                 <div class="card-body" style="display: inline-block;">
                   <div class="widget-49">
                     <div class="widget-49-title-wrapper">
@@ -167,7 +167,7 @@
             </div>
 
             <div class="col">
-              <div class="card" data-toggle="modal" data-target="#movimientoModal">
+              <div class="card" data-toggle="modal" data-target="#movimientoModal" style="cursor:pointer;">
                 <div class="card-body" style="display: inline-block;">
                   <div class="widget-49">
                     <div class="widget-49-title-wrapper">
@@ -184,7 +184,7 @@
             </div>
 
             <div class="col">
-              <div class="card" data-toggle="modal" data-target="#ritmoModal">
+              <div class="card" data-toggle="modal" data-target="#ritmoModal" style="cursor:pointer;">
                 <div class="card-body" style="display: inline-block;">
                   <div class="widget-49">
                     <div class="widget-49-title-wrapper">
@@ -201,7 +201,7 @@
             </div>
 
             <div class="col">
-              <div class="card" data-toggle="modal" data-target="#cambiosComportamiento">
+              <div class="card" data-toggle="modal" data-target="#cambiosComportamiento" style="cursor:pointer;">
                 <div class="card-body" style="display: inline-block;">
                   <div class="widget-49">
                     <div class="widget-49-title-wrapper">
@@ -218,7 +218,7 @@
             </div>
 
             <div class="col">
-              <div class="card" data-toggle="modal" data-target="#cambiosFisicos">
+              <div class="card" data-toggle="modal" data-target="#cambiosFisicos" style="cursor:pointer;">
                 <div class="card-body" style="display: inline-block;">
                   <div class="widget-49">
                     <div class="widget-49-title-wrapper">
@@ -326,7 +326,7 @@
   <div class="modal-dialog modal-lg">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLongTitle">Cambios de físicos</h5>
+        <h5 class="modal-title" id="exampleModalLongTitle">Cambios físicos</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>

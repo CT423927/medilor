@@ -15,7 +15,7 @@
         </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let paciente of pacientes; let i = index" [routerLink]="['/paciente', paciente.id]">
+            <tr *ngFor="let paciente of pacientes; let i = index" [routerLink]="['/paciente', paciente.id]" style="cursor:pointer;">
               <th>{{ i+1 }}</th>
               <td>{{ paciente.nombre }}</td>
               <td>{{ paciente.fechaIngreso }}</td>
