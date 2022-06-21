@@ -1,8 +1,7 @@
-
+const path = require('path');
 const express = require("express");
 const bodyParser = require("body-parser");
 const cors = require("cors");
-const path = require('path');
 const app = express();
 
 app.use(bodyParser.json());
@@ -32,7 +31,7 @@ app.use(express.urlencoded({ extended: true }));
 
 
 
-var algoritmo=require("./servidor/algoritmo.js");
+var algoritmo=require("./algoritmo.js");
 var escalaAbbey = new algoritmo.EscalaAbbey();
 
 // simple route
@@ -54,14 +53,13 @@ db.mongoose
 
   app.use(express.static(__dirname + '/cliente/dist/deteccion-dolor'));
 
-app.get("*", function(request,response){
-    var contenido=fs.readFileSync(path.join(__dirname+"/cliente/dist/deteccion-dolor/index.html"));
+app.get("/", function(request,response){
+    var contenido=fs.readFileSync(__dirname+"/cliente/dist/deteccion-dolor/index.html");
     //var nick=request.user.email;
     //var res=juego.agregarJugador(nick);
     //var res={nick:request.user.email};
     response.setHeader("Content-type","text/html");
     response.send(contenido);
-
 });
 
 // set port, listen for requests
