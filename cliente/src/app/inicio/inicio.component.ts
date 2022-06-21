@@ -49,7 +49,7 @@ export class InicioComponent implements OnInit {
   }
 
   conseguirAvisos(){
-    this.http.get('http://medilor.herokuapp.com/obtenerAlertas').subscribe(data => {
+    this.http.get('https://medilor.herokuapp.com/obtenerAlertas').subscribe(data => {
       console.log("avisos" + data);
       console.log("avisos" + Object.keys(data).length);
       this.numAvisos=Object.keys(data).length;

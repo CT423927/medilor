@@ -170,7 +170,7 @@ export class PacienteComponent implements OnInit {
   }
 
   conseguirAvisosPaciente(){
-    this.http.get('http://medilor.herokuapp.com/obtenerAlertas').subscribe(data => {
+    this.http.get('https://medilor.herokuapp.com/obtenerAlertas').subscribe(data => {
       this.avisos=data;
       this.avisos = this.avisos.filter(object => {
         let paciente = object['paciente'].includes(this.currentPaciente.nombre);
