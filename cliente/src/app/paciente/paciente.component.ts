@@ -117,7 +117,7 @@ export class PacienteComponent implements OnInit {
       this.refreshObject();
     });
 
-    this.http.get('http://localhost:8080/obtenerPuntuaciones').subscribe(data => {
+    this.http.get('http://medilor.herokuapp.com/obtenerPuntuaciones').subscribe(data => {
 
       this.json=data;
       console.log(this.json.vocalizacion);
@@ -137,7 +137,7 @@ export class PacienteComponent implements OnInit {
   }
 
   refreshObject(): void {
-    this.http.get('http://localhost:8080/obtenerPuntuacionFinal').subscribe(data => {
+    this.http.get('http://medilor.herokuapp.com/obtenerPuntuacionFinal').subscribe(data => {
       console.log("PUNTUACION TOTAL" + data);
       this.puntuacionTotal=JSON.parse(data.toString());
       this.gaugeValue= this.puntuacionTotal;
@@ -145,7 +145,7 @@ export class PacienteComponent implements OnInit {
   }
 
   refreshObjectAuto(): void {
-    this.http.get('http://localhost:8080/obtenerPuntuacionFinal').subscribe(data => {
+    this.http.get('http://medilor.herokuapp.com/obtenerPuntuacionFinal').subscribe(data => {
       console.log("PUNTUACION TOTAL" + data);
       this.puntuacionTotal=JSON.parse(data.toString());
       this.requestTimeout = setTimeout(() => this.refreshObjectAuto(),4000);
@@ -174,7 +174,7 @@ export class PacienteComponent implements OnInit {
   }
 
   conseguirAvisosPaciente(){
-    this.http.get('http://localhost:8080/obtenerAlertas').subscribe(data => {
+    this.http.get('http://medilor.herokuapp.com/obtenerAlertas').subscribe(data => {
       this.avisos=data;
       
       for(let paciente of this.avisos){
@@ -211,7 +211,7 @@ export class PacienteComponent implements OnInit {
   actualizarAtendidas(id){
     this.avisos[id].atendida='true';
 
-    this.http.post<any>('http://localhost:8080/avisoAtendido',  {id: id} ).subscribe(data => {
+    this.http.post<any>('http://medilor.herokuapp.com/avisoAtendido',  {id: id} ).subscribe(data => {
       next: (response) => console.log(response)
     });
   }
