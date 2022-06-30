@@ -7672,7 +7672,7 @@
                 log('Heart Rate:', rate);
                 if(document.getElementById("switchCheckPulsera").checked==false){
                   $.ajax({
-                    url : 'http://medilor.herokuapp.com/cambiosFisicologicos',
+                    url : 'https://medilor.herokuapp.com/cambiosFisicologicos',
                     data : {rate:rate}, 
                     method : 'POST', //en este caso
                     dataType : 'json',
