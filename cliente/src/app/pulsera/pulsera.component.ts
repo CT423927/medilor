@@ -21,6 +21,7 @@ export class PulseraComponent implements OnInit {
   valorCheckbox=false;
   ritmoCardiaco=0;
   requestTimeout: NodeJS.Timeout;
+  alerta=false;
 
   cambiosFisiologicos = new FormGroup({
     cambiosFisiologicos: new FormControl('', Validators.required)
@@ -30,7 +31,7 @@ export class PulseraComponent implements OnInit {
     this.valorCheckbox=e.target.checked;
     console.log(e.target.checked);
     console.log("CHECK"+this.valorCheckbox);
-    this.http.post<any>('https://medilor.herokuapp.com/manualActivadoCambiosFisicologicos',  {bool: this.valorCheckbox} ).subscribe(data => {
+    this.http.post<any>('http://localhost:8080/manualActivadoCambiosFisicologicos',  {bool: this.valorCheckbox} ).subscribe(data => {
       next: (response) => console.log(response)
     });
   }
@@ -43,17 +44,19 @@ export class PulseraComponent implements OnInit {
       data:this.valorCambiosFisiologicos 
     });
 
-    this.http.post<any>('https://medilor.herokuapp.com/fisiologicosManual',  {valorCambiosFisiologicos: this.valorCambiosFisiologicos} ).subscribe(data => {
+    this.http.post<any>('http://localhost:8080/fisiologicosManual',  {valorCambiosFisiologicos: this.valorCambiosFisiologicos} ).subscribe(data => {
       next: (response) => console.log(response)
     });
+    this.alerta=true;
     
   }
 
   obtenerRitmoCardiaco(): void {
-    this.http.get('https://medilor.herokuapp.com/obtenerRitmoCardiaco').subscribe(data => {
+    this.http.get('http://localhost:8080/obtenerRitmoCardiaco').subscribe(data => {
       console.log("ritmo" + data);
       this.ritmoCardiaco=JSON.parse(data.toString());
-      this.requestTimeout = setTimeout(() => this.obtenerRitmoCardiaco(),5000);
+      this.requestTimeout = setTimeout(() => this.obtenerRitmoCardiaco(),2000);
+      console.log(this.ritmoCardiaco + "RECIBIDOOOOO");
     });
   }
 

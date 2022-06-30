@@ -11,6 +11,9 @@
               </div>
        <div class="row">  
        <hr>
+             <div class="alert alert-success alert-dismissible fade show" role="alert" *ngIf="alerta==true">
+        <strong>Selección guardada.</strong> Su selección se ha guardado correctamente.
+             </div>
            <div class="form-check form-switch">
              <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" (change)="onCheckboxChange($event)">
              <label class="form-check-label" for="flexSwitchCheckDefault">Manual</label>

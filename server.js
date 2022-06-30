@@ -144,10 +144,10 @@ app.post("/vocalizacion", (req, res) => {
 app.post("/cambiosFisicologicos", (req, res) => {
   console.log("LLAMADA cambiosFisicologicos AUTO");
   console.log(req.body.rate);
-  if(escalaAbbey.manualActivadoCambiosFisicologicos){
-    escalaAbbey.ritmoCardiaco=req.body.rate;
-    escalaAbbey.cambiosFisicologicos(req.body.rate);
-  }
+  escalaAbbey.ritmoCardiaco=req.body.rate;
+  console.log("------------- ritmo ------------" + escalaAbbey.ritmoCardiaco);
+  escalaAbbey.calcularCambiosFisicologicos(req.body.rate);
+  
   
   res.send({"res":"OK"});
 });

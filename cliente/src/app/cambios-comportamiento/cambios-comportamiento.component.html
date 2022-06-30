@@ -1,4 +1,7 @@
 <div class="container">
+    <div class="alert alert-success alert-dismissible fade show" role="alert" *ngIf="alerta==true">
+        <strong>Selección guardada.</strong> Su selección se ha guardado correctamente.
+    </div>
     <div class="row">
         <form [formGroup]="cambioComportamiento" (ngSubmit)="submit()">
             <div class="frb-group">

@@ -14,7 +14,7 @@ export class CambiosComportamientoComponent implements OnInit {
   constructor(private http: HttpClient, private servicioCom:ComunicacionComponentesService) { }
 
   valorCambioComportamiento=0;
-
+  alerta=false;
   cambioComportamiento = new FormGroup({
     cambioComportamiento: new FormControl('', Validators.required)
   });
@@ -29,9 +29,10 @@ export class CambiosComportamientoComponent implements OnInit {
     this.servicioCom.disparadorEnviar.emit({
       data:this.valorCambioComportamiento 
     });
-    this.http.post<any>('https://medilor.herokuapp.com/cambiosComportamiento',  {cambioComportamiento: this.valorCambioComportamiento} ).subscribe(data => {
+    this.http.post<any>('http://localhost:8080/cambiosComportamiento',  {cambioComportamiento: this.valorCambioComportamiento} ).subscribe(data => {
       next: (response) => console.log(response)
     });
+    this.alerta=true;
   }
   
   changeCambioComportamiento(e) {

@@ -15,6 +15,7 @@ export class MovimientoComponent implements OnInit {
 
   valorLenguajeCorporal;
   valorCheckbox=false;
+  alerta=false;
   
   lenguajeCorporal = new FormGroup({
     lenguajeCorporal: new FormControl('', Validators.required)
@@ -24,7 +25,7 @@ export class MovimientoComponent implements OnInit {
     this.valorCheckbox=e.target.checked;
     console.log(e.target.checked);
     console.log("CHECK"+this.valorCheckbox);
-    this.http.post<any>('https://medilor.herokuapp.com/manualActivadoCambiosLenguajeCorporal',  {bool: this.valorCheckbox} ).subscribe(data => {
+    this.http.post<any>('http://localhost:8080/manualActivadoCambiosLenguajeCorporal',  {bool: this.valorCheckbox} ).subscribe(data => {
       next: (response) => console.log(response)
     });
   }
@@ -37,9 +38,10 @@ export class MovimientoComponent implements OnInit {
       data:this.valorLenguajeCorporal 
     });
 
-    this.http.post<any>('https://medilor.herokuapp.com/lenguajeCorporalManual',  {valorLenguajeCorporal: this.valorLenguajeCorporal} ).subscribe(data => {
+    this.http.post<any>('http://localhost:8080/lenguajeCorporalManual',  {valorLenguajeCorporal: this.valorLenguajeCorporal} ).subscribe(data => {
       next: (response) => console.log(response)
     });
+    this.alerta=true;
   }
 
   public loadExternalScript(url: string) {
